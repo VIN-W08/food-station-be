@@ -1,7 +1,8 @@
 import { Application } from "express";
-import express from 'express'
+import express from 'express';
 import mongoose from "mongoose";
 import { Controller } from "./Controller/Controller";
+import cors from 'cors';
 
 export class App {
     public app: Application
@@ -24,6 +25,7 @@ export class App {
     }
 
     private initMiddleware = () => {
+        this.app.use(cors())
         this.app.use(express.json())
     }
 
